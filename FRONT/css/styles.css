@@ -1,0 +1,92 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", serif;
+    background-color: #fef1ef;
+}
+.logo-pagina-image{
+    width: 200px;
+}
+.header__menu-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #020019;
+    position: sticky;
+    top: 0;
+    max-width: 100vw;
+}
+.header__principal-logo{
+    margin-left: 20px;
+    padding-top: 10px;
+}
+/* --------------- CARRITO ---------------- */
+.carrito-image{
+    width: 30px;
+}
+.header__carrito{
+    color: #fff;
+    padding: 10px;
+    text-align: right;
+    position: relative;
+    margin-left: 700px;
+}
+.header__carrito button{
+    background-color: transparent;
+    border: none;
+}
+.header__carrito span{
+    background-color: #d9053f;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    padding: 2px 6px;
+}
+
+.header__session{
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+    color: #fff;
+}
+.header__session a{
+    padding: 20px;
+    text-decoration: none;
+    color: #d9053f;
+}
+.header__session a:hover{
+    background-color: #d9053fbb;
+    border-radius: 80px;
+    color: #fff;
+}
+/* TABLA DE ANUNCIOS */
+.tabla-anuncios img{
+    max-width: 98.7vw;
+}
+
+/* MENÚ DE NAVEGACIÓN */
+
+.header__menu-categori-container{
+    background-color: #fef1ef;
+    position: sticky;
+    top: 0;
+}
+.menu-list{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.recomendados-svg{
+    width: 50px;
+}
+.menu-item{
+    list-style: none;
+}
