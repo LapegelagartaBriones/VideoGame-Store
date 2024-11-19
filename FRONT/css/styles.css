@@ -7,6 +7,9 @@ body{
     font-family: "Montserrat", serif;
     background-color: #fef1ef;
 }
+div{
+    border: 1px solid #0f0;
+}
 .logo-pagina-image{
     width: 200px;
 }
@@ -89,4 +92,49 @@ body{
 }
 .menu-item{
     list-style: none;
+}
+/* PRODUCTOS */
+.producto{
+    display: flex;
+}
+.ficha{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.ficha img{
+    width: 300px;
+}
+/* MODAL PRODUCTO */
+
+.modal-producto{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: #d9053f55;
+
+}
+.modal-content{
+    background-color: #fef1ef;
+    margin: 20% auto;
+    padding: 20px;
+    width: 70%;
+    box-shadow: 0 5px 8px 0 #0002;
+}
+.modal-close{
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+
+}
+.modal-close:hover, .modal-close:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
