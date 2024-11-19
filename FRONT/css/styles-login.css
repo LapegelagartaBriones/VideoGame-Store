@@ -10,7 +10,7 @@ header{
     background-color: #020019;
 }
 div{
-    border: 1px solid #0f0;
+    
 }
 .session__container{
     display: flex;
@@ -18,23 +18,18 @@ div{
     justify-content: space-between;
     align-items: center;
 }
+/* Mensaje de bienvenida */
 .mensaje-inicio{
-    
     margin-left: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 300px;
-    position: relative;
-}
-.mensaje-texto{
-    width: 200px;
-    background-color: #020019;
-    left: 290px;
-    top: 30px;
-    position: absolute;
+    max-width: 500px;
     color: #fdf0ee;
+    text-wrap: balance;
+    font-size: 40px;
 }
+/* FORMULARIO */
 .formulario{
     display: flex;
     flex-direction: column;
@@ -43,9 +38,10 @@ div{
     margin-right: 100px;
     border-radius: 50px;
     background-color: #fdf0ee;
-    color: #fdf0ee;
+    color: #020019;
     box-shadow: 0 0 7px 0px #020019;
 }
+
 .form-list{
     display: flex;
     flex-direction: column;
@@ -54,24 +50,37 @@ div{
 .raya__inicio-sesion{
     width: 100%;
     border: 1px solid #d9053f;
-    margin: 10px 0;
-}
-.btn_submit{
-    background-color: transparent;
-    font-size: 20px;
-    border: none;
-    color:#fdf0ee ;
-}
-.btn_submit:hover{
-    background-color: #d9053f;
     border-radius: 20px;
+    margin: 10px 0;
 }
 .input{
     border: 5px;
     border: none;
     padding: 5px;
     background-color: transparent;
-    border-bottom: 1px solid #fdf0ee;
-    color: #fdf0ee;
+    color: #d9053f;
     margin: 10px 0;
+}
+
+.btn_submit{
+    background-color: transparent;
+    font-size: 20px;
+    border: none;
+    color:#020019 ;
+}
+.btn_submit:hover{
+    background-color: #d9053f;
+    border-radius: 20px;
+}
+.form-list a{
+    text-decoration: none;
+}
+.form-list a:link{
+    color: #d9053f;
+}
+.form-list a:visited{
+    color: #fa0f9b;
+}
+.form-list a:hover{
+    color: #5ebe73;
 }
