@@ -1,7 +1,6 @@
 // Get modal element
 var modal = document.getElementById("modal-producto");
-//Get open modal button
-var modalbtn = document.getElementById("modal-open");
+
 //Get close button
 var closebtn = document.getElementById('btn-close-modal');
 //Get ficha pruebas
@@ -11,14 +10,11 @@ var closebtn = document.getElementById('btn-close-modal');
 //ficha.forEach(ficha => {
 //    ficha.addEventListener('click', openModal);
 //});
-const btnAddCarrito = document.querySelectorAll('#add-carrito');
-const img = document.querySelector(".img-producto");
-btnAddCarrito.forEach(btnAddCarrito=>{
-    btnAddCarrito.addEventListener('click',)
-})
-img.addEventListener('click', openModal);
-// Listen for open click
-modalbtn.addEventListener('click', openModal);
+const img = document.querySelectorAll(".img-producto");
+img.forEach(img=>{
+    img.addEventListener('click', openModal);
+    console.log(img)
+});
 //Listen for close click
 closebtn.addEventListener('click', closeModal);
 //lsiten for outside click
