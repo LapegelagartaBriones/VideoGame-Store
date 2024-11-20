@@ -3,31 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/logo-JP-icon.png">
     <title>Enebo - Carrito</title>
+    <link rel="stylesheet" href="/css/styles-carrito.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="contenido">
         <header class="header">
-            <div class="header__container">
-                <div class="header__principal-logo"></div>
-                <div class="header__session"></div>
+            <div class="header__menu container">
+                <div class="header__principal-logo">
+                    <a href="index.html"><img class="logo-pagina-image" src="/images/logo-pagina.png"></a>
+                </div>
             </div>
         </header>
         <main class="main">
             <div class="main__container">
                 <div class="main__product">
-                    
+                    <h1 class="titulo-carrito">Mi Carrito Alpha</h1>
+                    <div class="producto-carrito">
+                        <img src="/images/HorizonForbiddenWest_playstation.jpg" class="imagen__producto-carr">
+                        <div class="producto-container">
+                            <div class="borrar">(Esto va a ser un bote de basura)</div>
+                            <h2 class="titulo__producto-carrito">HorizonForbiddenWest</h2>
+                            <p class="text-plataforma">PLAYSTATION</p>
+                            <div class="num-productos">
+                                <h3>Cantidad</h3>
+                                <p class="menos">-</p>
+                                <p class="cantidad">1</p>
+                                <p class="mas">+</p>
+                            </div>
+                            <div class="precio-container">
+                                <p>Precio:</p>
+                                <p class="precio">$<strong class="numero-precio">641.16</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pago__container">
+                    <div class="resumen">
+                        <h2>Resumen</h2>
+                        <a href="pago.html" class="enlace-compra">Continuar con la compra</a>
+                    </div>
+                    <div class="total">
+                        <div class="total-text">
+                            <h2>Total:</h2>
+                        </div>
+                        <div class="num-total">
+                            641.16 MXN
+                        </div>
+                    </div>
+                    <div class="forma-pago">
+                        <div class="oxxo-pagos-container">
+                            <h2 class="forma-pago-text">Forma de Pago</h2>
+                            <label for="oxxo-pago" class="pago-oxxo">OXXO</label>
+                            <input type="checkbox" id="oxxo-pago">
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
-        <aside class="tabla-pago">
-            <div class="tabla-pago__container">
-                <div class="resumen"></div>
-                <div class="total"></div>
-            </div>
-        </aside>
         <footer class="footer">
-            <div class="footer__container"></div>
+            <div class="footer__container">
+
+            </div>
         </footer>
     </div>
 </body>

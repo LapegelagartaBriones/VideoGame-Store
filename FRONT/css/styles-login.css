@@ -67,10 +67,12 @@ div{
     font-size: 20px;
     border: none;
     color:#020019 ;
+    padding: 10px;
 }
 .btn_submit:hover{
     background-color: #d9053f;
     border-radius: 20px;
+    color: #fdf0ee;
 }
 .form-list a{
     text-decoration: none;
