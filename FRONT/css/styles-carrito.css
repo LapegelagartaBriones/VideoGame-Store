@@ -4,7 +4,8 @@
     padding: 0;
 }
 body{
-    background-color: #fdf0ee;
+    background-color: #020019;
+    font-family: 'Montserrat', serif;
 }
 div{
     border: 1px solid #0f0;
@@ -18,12 +19,28 @@ div{
 .main__product{
     display: flex;
     flex-direction: column;
+    background-color: #fdf0ee;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+}
+.otra-raya{
+    width: 100%;
+    margin: 10px 0;
+    border: 1px solid #020019;
 }
 .producto-carrito{
     display: flex;
     background-color: #020019;
     color: #fdf0ee;
+    padding-right: 40px;
+    position: relative;
 }
+.borrar{
+    position: absolute;
+    right: 0;
+}
+.titulo__producto-carrito
 .imagen__producto-carr{
     width: 200px;
 }
