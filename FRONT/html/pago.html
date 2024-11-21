@@ -3,22 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enebo - Pago</title>     
+    <link rel="icon" href="/images/logo-JP-icon.png">
+    <title>Enebo - Pago</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles-pago.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="contenido">
         <header class="header">
-            <div class="header__container">
-                <div class="header__principal-logo"></div>
-                <div class="header__session"></div>
+            <div class="header__menu container">
+                <div class="header__principal-logo">
+                    <a href="index.html"><img class="logo-pagina-image" src="/images/logo-pagina.png"></a>
+                </div>
+                <div class="cancelar">
+                    <a href="index.html">Cancelar</a>
+                </div>
             </div>
         </header>
         <main class="main">
             <div class="main__container">
-                <div class="forma-pago__container">
-                    <div class="oxxo"></div>
-                    <div class="paypal"></div>
+                <div class="titulo-main">
+                    <h1>PANTALLA DE COMPRA</h1>
+                    <h3 class="username">username</h3>
                 </div>
+                <div class="lo-demas">
+                    <div class="anuncio">
+                        Verifica tu información y haz clic en Realizar compra.
+                    </div>
+                    <div class="resumen-pago">
+                        <div class="titulo-resumen-compra">
+                            <h2>Resumen de compra</h2>
+                        </div>
+                        <div class="raya-resumen-compra"></div>
+                        <div class="productos-titulo">
+                            <h2>Productos :</h2>
+                        </div>
+                        <div class="titulo-resumen-pago">
+                            <img src="/images/HorizonForbiddenWest_playstation.jpg" class="imagen__producto-carr">
+                            <div class="producto-container">
+                                <div class="titulo__producto-carrito-container">
+                                    <h2 class="titulo__producto-carrito">Horizon Forbidden West</h2>
+                                </div>
+                                <p class="text-plataforma">PLAYSTATION</p>
+                                <div class="precio-container">
+                                    <p>Precio:</p>
+                                    <p class="precio">$<strong class="numero-precio">641.16</strong></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="raya-resumen-compra"></div>
+                        <div class="pagos-resumen">
+                            <div class="tipo-pago">
+                                <h2>Tipo de pago:</h2>
+                                <h3>OXXO</h3>
+                            </div>
+                            <div class="total">
+                                <h3 class="texto-total">Total</h3>
+                                <h3 class="dinero">$641.16</h3>
+                            </div>
+                        </div>
+                        <div class="raya-resumen-compra"></div>
+                        <div class="button-pago">
+                            <button class="btn-realizar-compra">Realizar Compra</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </main>
         <footer class="footer">

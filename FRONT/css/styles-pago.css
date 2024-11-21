@@ -1,0 +1,154 @@
+*{
+    box-sizing: border-box;
+}
+.container{
+    background-color: #020019;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cancelar a{
+    text-decoration: none;
+    color: #d9053f;
+}
+body{
+    background-color: #fdf0ee;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", serif;
+}
+.cancelar{
+    margin-right: 20px;
+    padding: 10px;
+    text-decoration: none;
+}
+.cancelar a{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+.cancelar a:hover{
+    background-color: #d9053f99;
+    border-radius: 20px;
+    color: #fdf0ee;
+}
+.titulo-main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.lo-demas{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.anuncio{
+    background-color: #b0a7a6;
+    padding: 30px;
+}
+.resumen-pago{
+    padding: 20px;
+    background-color: #020019;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    border-radius: 20px;
+}
+
+.imagen__producto-carr{
+    max-width: 200px;
+}
+.titulo-resumen-compra{
+    color: #fdf0ee;
+}
+.raya-resumen-compra{
+    width: 100%;
+    border: 1px solid #fdf0ee;
+    margin: 10px 0;
+    font-size: 5px;
+}
+.productos-titulo{
+    color: #fdf0ee;
+}
+
+.titulo-resumen-pago{
+    display: flex;
+    background-color: #fdf0ee;
+    margin: 20px 0;
+}
+.titulo-producto-carrito-container{
+    text-wrap: wrap;
+}
+.titulo__producto-carrito{
+    padding: 10px 20px;
+}
+.text-plataforma{
+    padding-left: 20px;
+}
+.precio-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #b0a7a699;
+}
+
+.pagos-resumen{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: flex-start;
+    background-color: #fdf0ee;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+}
+.tipo-pago{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    background-color: #b0a7a699;
+}
+.tipo-pago h3{
+    margin-right: 20px;
+}
+.total{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #b0a7a699;
+}
+.dinero{
+    margin-right: 20px;
+}
+.texto-total{
+    font-size: 20px;
+}
+.button-pago{
+    width: 100%;
+    display: flex;
+}
+.btn-realizar-compra{
+    background-color: #d9053f;
+    color: #fdf0ee;
+    font-size: 30px;
+    font-family: inherit;
+    border-radius: 30px;
+    border: none;
+    margin: auto;
+    padding: 20px;
+    width: 100%
+}
+.btn-realizar-compra:hover{
+    background-color: #fa0f9b;
+}
