@@ -44,7 +44,7 @@ body{
     align-items: flex-start;
     flex-wrap: wrap;
 }
-.anuncio{
+.anuncio-pago{
     background-color: #b0a7a6;
     padding: 30px;
 }
@@ -151,4 +151,39 @@ body{
 }
 .btn-realizar-compra:hover{
     background-color: #fa0f9b;
+}
+.modal-pago-realizado{
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    background-color: #02001999;
+}
+.modal-pago-content{
+    border-radius: 20px;
+    background-color: #fdf0ee;
+    color: #d9053f;
+    margin: 20% auto;
+    padding: 20px;
+    min-width: 80%;
+    box-shadow: 0 1px 10px 0 #020019;
+    animation-name: pagoOpen;
+    animation-duration: 2s;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.modal-pago-content span{
+    position: absolute;
+    right: 20px;
+    font-size: 40px;
+    cursor: pointer;
+}
+.modal-pago-content span:hover, .modal-pago-content span:focus{
+    color: #fa0f9b;
 }

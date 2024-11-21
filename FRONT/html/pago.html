@@ -30,7 +30,7 @@
                     <h3 class="username">username</h3>
                 </div>
                 <div class="lo-demas">
-                    <div class="anuncio">
+                    <div class="anuncio-pago">
                         Verifica tu información y haz clic en Realizar compra.
                     </div>
                     <div class="resumen-pago">
@@ -68,17 +68,23 @@
                         </div>
                         <div class="raya-resumen-compra"></div>
                         <div class="button-pago">
-                            <button class="btn-realizar-compra">Realizar Compra</button>
+                            <button class="btn-realizar-compra" id="btn-pago-realizado">Realizar Compra</button>
                         </div>
                         </div>
                     </div>
                 </div>
-
+                <div class="modal-pago-realizado" id="pago-realizado">
+                    <div class="modal-pago-content">
+                        <span class="modal-pago-close" id="close-pago">&times;</span>
+                        <p>Producto comprado satisfactoriamente. ¡Disfrutalo!</p>
+                    </div>
+                </div>
             </div>
         </main>
         <footer class="footer">
             <div class="footer__container"></div>
         </footer>
     </div>
+    <script src="/js/pagoScript.js"></script>
 </body>
 </html>

@@ -7,8 +7,8 @@ body{
     font-family: "Montserrat", serif;
     background-color: #fef1ef;
     overflow-x: hidden; /* Evita que los elementos se desborden horizontalmente */
+    position: relative;
 }
-
 .logo-pagina-image{
     width: 200px;
 }
@@ -75,7 +75,16 @@ body{
 }
 
 /* MENÚ DE NAVEGACIÓN */
-
+.titulo{
+    padding: 20px;
+    margin-left: 20px;
+}
+.raya-titulo-aestetic{
+    width: 90%;
+    margin-left: 50px;
+    border: 1px solid #d9053f;
+    background-color: #d9053f;
+}
 .header__menu-categori-container{
     background-color: #fef1ef;
     position: sticky;
@@ -112,6 +121,10 @@ body{
 .img-producto{
     position: relative;
     display: flex;
+}
+.titulo-producto{
+    text-wrap: balance;
+    max-width: 200px;
 }
 .ver{
     display: none;
@@ -156,6 +169,7 @@ body{
 /* MODAL PRODUCTO */
 
 .modal-producto{
+    
     display: none;
     position: fixed;
     z-index: 2000;
@@ -168,28 +182,110 @@ body{
 
 }
 .modal-content{
+    border-radius: 20px;
     background-color: #fef1ef;
     margin: 20% auto;
     padding: 20px;
-    width: 70%;
+    max-width: 80%;
+    /*width: 70%;*/
     box-shadow: 0 5px 8px 0 #0002;
     animation-name: modalopen;
     animation-duration: 1s;
-    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.image-juego-modal{
+    width: 200px;
+}
+.ficha-info-modal{
+    display: flex;
+}
+.informacion-modal{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: space-evenly;
+}
+.titulo-producto-modal{
+    max-width: 100%;
+    text-wrap: balance;
+    margin: 10px ;
+}
+.plataforma-modal{
+    margin: 10px;
+}
+.precio-modal{
+    margin: 10px;
+}
+.descripcion-titulo-modal{
+    margin: 10px;
+}
+.raya-acerca-de{
+    margin: 10px;
+    width: 90%;
+    border: 1px solid #020019;
+}
+.descripcion-modal{
+    margin-left: 10px;
+    text-wrap: pretty;
+    max-width: 100%;
+    padding: 20px;
+}
+.descripcion-modal p{
+    margin: 10px;
+    padding: 20px;
 }
 .modal-close{
     color: #ccc;
     float: right;
     font-size: 30px;
-
+}
+.titulo-trailer{
+    margin: auto;
+}
+.trailer-modal{
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
 }
 .modal-close:hover, .modal-close:focus{
-    color: #000;
+    color: #d9053f;
     text-decoration: none;
     cursor: pointer;
 }
 
+
+
 @keyframes modalopen {
     from {opacity: 0}
     to {opacity: 1}
+}
+
+.anuncio{
+    background-color: #020019;
+    max-width: 500px;
+    color: #fef1ef;
+    padding: 10px;
+    position: fixed;
+    z-index: 20000;
+    top: 50%;
+    margin-left: 5px;
+}
+.raya-anuncio{
+    width: 100%;
+    border: 1px solid #d9053f;
+}
+
+.anuncio-close{
+    position: absolute;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    
+}
+.anuncio-close:hover, .anuncio-close:focus{
+    color: #d9053f;
 }

@@ -10,11 +10,14 @@ var closebtn = document.getElementById('btn-close-modal');
 //ficha.forEach(ficha => {
 //    ficha.addEventListener('click', openModal);
 //});
+const closebtnAnuncio = document.getElementById('btn-close-anuncio');
+const anuncio=document.getElementById('anuncio');
 const img = document.querySelectorAll(".img-producto");
 img.forEach(img=>{
     img.addEventListener('click', openModal);
     console.log(img)
 });
+closebtnAnuncio.addEventListener('click', closeAnuncio);
 //Listen for close click
 closebtn.addEventListener('click', closeModal);
 //lsiten for outside click
@@ -31,4 +34,7 @@ function clickOustside(e) {
         console.log(e);
         modal.style.display='none';
     }
+}
+function closeAnuncio(){
+    anuncio.style.display='none';
 }
