@@ -1,5 +1,6 @@
 import Sequelize from "sequelize";
 import { DataTypes } from "sequelize";
+import bcrypt from "bcrypt"
 import db from "../config/db.js";
 import Rol from "./Rol.js";
 
@@ -29,7 +30,13 @@ const Usuario = db.define('usuarios',{
     },
     token:DataTypes.STRING
 },{
-    timestamps:false
+    timestamps:false,
+    hooks:{
+        beforeCreate:async function(usuario){
+            const rep= await bcrypt.genSalt(10);
+            usuario.password=await bcrypt.hash(usuario.password,rep);
+        }
+    }
 });
 
 Rol.hasOne(Usuario,{
@@ -43,5 +50,10 @@ Usuario.belongsTo(Rol,{
         name:"id_rol",
     },
 });
+
+//Metodo prototype
+Usuario.prototype.verificandoClave=function (password) {
+    return bcrypt.compareSync(password, this.password);
+}
 
 export default Usuario;

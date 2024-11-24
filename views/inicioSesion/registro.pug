@@ -2,7 +2,7 @@ doctype html
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(rel='icon' href='/images/logo-JP-icon.png')
+  link(rel='icon' href='img/images_pagina/logo-JP-icon.png')
   title Enebo - Registro
   link(rel='stylesheet' href='/css/styles.css')
   link(rel='stylesheet' href='/css/styles-login.css')
@@ -14,7 +14,7 @@ head
     .header__menu
       .header__principal-logo
         a(href='/')
-          img.logo-pagina-image(src='/images/logo-pagina.png')
+          img.logo-pagina-image(src='img/images_pagina/logo-pagina.png')
   .session__container
     .mensaje-inicio
       h2.mensaje TU SIGUIENTE AVENTURA COMIENZA AQU&Iacute;. . .
@@ -22,7 +22,7 @@ head
       form.form-list(action='/registro' method='post')
         h1.titulo-login Registrarse
         if error
-          .mensaje-error #{error} //Mensaje de error
+          .mensaje-error #{error}
         else 
           .mensaje #{mensaje}
         label(for='username') Nombre de Usuario (crea algo divertido)

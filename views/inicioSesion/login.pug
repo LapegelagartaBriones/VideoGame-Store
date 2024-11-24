@@ -3,7 +3,7 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Enebo - Iniciar Sesi&oacute;n
-  link(rel='icon' href='/images/logo-JP-icon.png')
+  link(rel='icon' href='img/images_pagina/logo-JP-icon.png')
   link(rel='stylesheet' href='/css/styles.css')
   link(rel='stylesheet' href='/css/styles-login.css')
   link(rel='preconnect' href='https://fonts.googleapis.com')
@@ -13,27 +13,27 @@ head
   header.header
     .header__menu.container
       .header__principal-logo
-        a(href='index.html')
-          img.logo-pagina-image(src='/images/logo-pagina.png')
+        a(href='/')
+          img.logo-pagina-image(src='img/images_pagina/logo-pagina.png')
   .session__container
     .mensaje-inicio
       h2.mensaje TU SIGUIENTE AVENTURA COMIENZA AQU&Iacute;. . .
     .formulario
-      form.form-list(method='post')
+      form.form-list(action='/login' method='post')
         h1.titulo-login Iniciar Sesi&oacute;n
         if error
           .mensaje-error #{error} //Mensaje de error 
         else 
           .mensaje-registro #{mensaje}
         label(for='email') Correo Electr&oacute;nico
-        input#email.input(type='email' placeholder='Ej. ejemplo@ejemplo.com')
+        input#email.input(type='email' name='email' placeholder='Ej. ejemplo@ejemplo.com' required)
         label(for='password') Contrase&ntilde;a
-        input#password.input(type='password' placeholder='Tu contraseña aquí')
+        input#password.input(type='password' name='password' placeholder='Tu contraseña aquí' required)
         .raya__inicio-sesion
         input.btn_submit(type='submit' value='Ingresar')
         p
           | Si a&uacute;n no tienes cuenta registrate 
-          a(href='registro.html') aqu&iacute;
+          a(href='/registro') aqu&iacute;
           | .
   footer.footer
     .footer__container

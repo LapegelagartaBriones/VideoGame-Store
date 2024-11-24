@@ -1,5 +1,7 @@
 import Usuario from "../../models/Usuarios.js";
 import idGenerated from "../../helpers/token.js";
+import { correoRegistro } from "../../helpers/correos.js";
+
 const mostrarRegistro = (req, res)=>{
     res.render("inicioSesion/registro")
 }
@@ -20,12 +22,19 @@ const registroUser = async (req, res)=>{
             id_rol:2,
             token: token
         });
-
+        
         //redirigir o responder al cliente
         await usuario.save();
-        res.render('inicioSesion/login', {
-            mensaje: 'Se ha registrado con éxito, por favor verifique su crorreo para confirmar su cuenta.'
+        //mandar correo
+        //mandando correo
+        correoRegistro({
+            nombre:usuario.username,
+            correo:usuario.email,
+            token:usuario.token
         });
+        
+        //nota es muchisimo mejor redirec cuando cumplimos con un registro 
+        res.redirect("/login");
     } catch (error) {
         if (error.name === 'SequelizeUniqueConstraintError') {
             return res.render('inicioSesion/registro', {

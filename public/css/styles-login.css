@@ -84,6 +84,8 @@ header{
     color: #5ebe73;
 }
 .mensaje-registro{
+    max-width: 100%;
+    text-wrap: pretty;
     background-color: #5ebe7399;
     padding: 20px;
     color: #020019;

@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import db from "./config/db.js"
 import  routerSesion  from "./routes/inicioSesion_routes.js";
 import inicioRouter from "./routes/inicioRouter.js";
+import routerLogin from "./routes/loginRouter.js";
 
 
 //Creamos nuestra aplicación express (framework de node.js)
@@ -32,6 +33,7 @@ app.use(express.static("public"));
 //Enrutamiento (de momento solamente utilizaremos index traduciendo de html a pug)
 app.use("/", inicioRouter);
 app.use("/registro", routerSesion);
+app.use("/login", routerLogin)
 
 
 //Definimos el puerto de escucha de nuestro servidor. 

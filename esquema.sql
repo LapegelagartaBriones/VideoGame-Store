@@ -1,111 +1,78 @@
--- MySQL Workbench Forward Engineering
+SET NAMES 'utf8mb4';
+DROP DATABASE IF EXISTS enebo;
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+CREATE DATABASE IF NOT EXISTS enebo DEFAULT CHARACTER SET utf8mb4;
 
--- -----------------------------------------------------
--- Schema mydb
--- -----------------------------------------------------
--- -----------------------------------------------------
--- Schema enebo
--- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema enebo
--- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `enebo` ;
-USE `enebo` ;
-
--- -----------------------------------------------------
--- Table `enebo`.`rol`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `enebo`.`rol` (
-  `id_rol` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(20) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_rol`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 3;
+USE enebo;
 
 
--- -----------------------------------------------------
--- Table `enebo`.`usuario`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `enebo`.`usuario` (
-  `id_usuario` INT(11) NOT NULL AUTO_INCREMENT,
-  `username` VARCHAR(50) NULL DEFAULT NULL,
-  `correo` VARCHAR(50) NULL DEFAULT NULL,
-  `pasword` VARCHAR(50) NULL DEFAULT NULL,
-  `id_rol` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_usuario`),
-  INDEX `id_rol` (`id_rol` ASC) VISIBLE,
-  CONSTRAINT `usuario_ibfk_1`
-    FOREIGN KEY (`id_rol`)
-    REFERENCES `enebo`.`rol` (`id_rol`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 2;
+CREATE TABLE roles(
+	id_rol		INTEGER NOT NULL AUTO_INCREMENT,
+    nombre		VARCHAR(40) NOT NULL,
+    PRIMARY KEY(id_rol)
+)DEFAULT CHARACTER SET UTF8MB4;
+
+CREATE TABLE usuarios(
+	id_usuario	 INTEGER NOT NULL AUTO_INCREMENT,
+    username	 VARCHAR(40) NOT NULL UNIQUE,
+    email		 VARCHAR(100) NOT NULL UNIQUE,
+    password	 VARCHAR(100) NOT NULL UNIQUE,
+    confirmado	 BOOLEAN DEFAULT FALSE,
+    token		 VARCHAR(50) NOT NULL, 
+    id_rol		 INTEGER NOT NULL,
+    PRIMARY KEY(id_usuario),
+    FOREIGN KEY(id_rol) REFERENCES roles(id_rol)
+)DEFAULT CHARACTER SET UTF8MB4;
+
+CREATE TABLE plataformas(
+	id_plataforma INTEGER NOT NULL AUTO_INCREMENT,
+    nombre		  VARCHAR(15) NOT NULL,
+    PRIMARY KEY(id_plataforma)
+)DEFAULT CHARACTER SET UTF8MB4;
+
+CREATE TABLE juegos(
+	id_juego INTEGER NOT NULL AUTO_INCREMENT,
+    nombre	 VARCHAR(50) NOT NULL, 
+    portada  VARCHAR(50) NOT NULL,
+    id_plataforma INTEGER NOT NULL, 
+	trailer		  VARCHAR(20) NOT NULL,
+    descripcion	  VARCHAR(200) NOT NULL,
+    PRIMARY KEY(id_juego),
+    FOREIGN KEY(id_plataforma) REFERENCES plataformas(id_plataforma)
+)DEFAULT CHARACTER SET UTF8MB4;
+
+CREATE TABLE carrito(
+	id_carrito INTEGER NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY(id_carrito)
+)DEFAULT CHARACTER SET UTF8MB4;
 
 
--- -----------------------------------------------------
--- Table `enebo`.`carrito`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `enebo`.`carrito` (
-  `id_carrito` INT(11) NOT NULL AUTO_INCREMENT,
-  `id_usuario` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_carrito`),
-  INDEX `id_usuario` (`id_usuario` ASC) VISIBLE,
-  CONSTRAINT `carrito_ibfk_1`
-    FOREIGN KEY (`id_usuario`)
-    REFERENCES `enebo`.`usuario` (`id_usuario`))
-ENGINE = InnoDB;
+CREATE TABLE juegosCarrito(
+	id_juegosCarrito INTEGER NOT NULL AUTO_INCREMENT,
+    id_juego INTEGER NOT NULL,
+    id_carrito INTEGER NOT NULL,
+    PRIMARY KEY(id_juegosCarrito),
+    FOREIGN KEY(id_juego)REFERENCES juegos(id_juego),
+    FOREIGN KEY(id_carrito)REFERENCES carrito(id_carrito)
+)DEFAULT CHARACTER SET UTF8MB4;
 
 
--- -----------------------------------------------------
--- Table `enebo`.`plataforma`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `enebo`.`plataforma` (
-  `id_plataforma` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(10) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_plataforma`))
-ENGINE = InnoDB;
+CREATE TABLE usuarioCarrito(
+	id_usuarioCarrito		INTEGER NOT NULL AUTO_INCREMENT,
+    id_usuario				INTEGER NOT NULL,
+    id_carrito				INTEGER NOT NULL,
+    PRIMARY KEY(id_usuarioCarrito),
+    FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario),
+    FOREIGN KEY(id_carrito) REFERENCES carrito(id_carrito)
+)DEFAULT CHARACTER SET UTF8MB4;
 
+DELETE FROM roles;
+DELETE FROM usuarios WHERE id_usuario=2;
+DELETE FROM plataformas;
+DELETE FROM juegos;
+DELETE FROM carrito;
+DELETE FROM juegosCarrito;
+DELETE FROM usuarioCarrito;
 
--- -----------------------------------------------------
--- Table `enebo`.`juego`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `enebo`.`juego` (
-  `id_juego` INT(11) NOT NULL AUTO_INCREMENT,
-  `imagen` VARCHAR(40) NULL DEFAULT NULL,
-  `id_plataforma` INT(11) NULL DEFAULT NULL,
-  `precio` VARCHAR(10) NULL DEFAULT NULL,
-  `iframe` VARCHAR(40) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_juego`),
-  INDEX `id_plataforma` (`id_plataforma` ASC) VISIBLE,
-  CONSTRAINT `juego_ibfk_1`
-    FOREIGN KEY (`id_plataforma`)
-    REFERENCES `enebo`.`plataforma` (`id_plataforma`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `enebo`.`carrito_juego`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `enebo`.`carrito_juego` (
-  `id_carrito_juego` INT(11) NOT NULL AUTO_INCREMENT,
-  `id_juego` INT(11) NULL DEFAULT NULL,
-  `id_carrito` INT(11) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_carrito_juego`),
-  INDEX `id_juego` (`id_juego` ASC) VISIBLE,
-  INDEX `id_carrito` (`id_carrito` ASC) VISIBLE,
-  CONSTRAINT `carrito_juego_ibfk_1`
-    FOREIGN KEY (`id_juego`)
-    REFERENCES `enebo`.`juego` (`id_juego`),
-  CONSTRAINT `carrito_juego_ibfk_2`
-    FOREIGN KEY (`id_carrito`)
-    REFERENCES `enebo`.`carrito` (`id_carrito`))
-ENGINE = InnoDB;
-
-
-SET SQL_MODE=@OLD_SQL_MODE;
-SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+INSERT INTO roles(nombre) VALUES('administrador');
+INSERT INTO roles(nombre) VALUES('cliente');
