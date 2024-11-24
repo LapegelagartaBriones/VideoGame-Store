@@ -19,12 +19,13 @@ head
     .mensaje-inicio
       h2.mensaje TU SIGUIENTE AVENTURA COMIENZA AQU&Iacute;. . .
     .formulario
-      form.form-list(action='/registro' method='post')
+      form.form-list(action='/login' method='post')
         h1.titulo-login Registrarse
         if error
           .mensaje-error #{error}
         else 
           .mensaje #{mensaje}
+        input(type="hidden", name="_csrf", value=csrf)
         label(for='username') Nombre de Usuario (crea algo divertido)
         input#username.input(type='text' name='username' placeholder='Ej. Lapegelagarta' required)
         label(for='email') Correo Electr&oacute;nico
@@ -37,7 +38,7 @@ head
         input.btn_submit(type='submit' value='Registrar')
         p
           | Si ya cuentas con una cuenta, inicia sesi&oacute;n 
-          a(href='/login') aqu&iacute;
+          a(href='/login/iniciarSesion') aqu&iacute;
           | .
   footer.footer
     .footer__container

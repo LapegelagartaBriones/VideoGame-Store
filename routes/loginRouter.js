@@ -1,8 +1,10 @@
-import { mostrarlogin } from "../controllers/inicioSesion/loginController.js";
 import express from "express";
+import { mostrarRegistro, registroUser, mostrarLogin, confirmarInscripcion, iniciarSesion } from "../controllers/inicioSesion/loginController.js";
+const loginRouter = express.Router();
 
-const routerLogin = express.Router();
-
-routerLogin.get("/", mostrarlogin);
-
-export default routerLogin;
+loginRouter.get('/', mostrarRegistro);
+loginRouter.post('/',registroUser);
+loginRouter.get("/iniciarSesion", mostrarLogin);
+loginRouter.get('/confirmarInscripcion/:token', confirmarInscripcion);
+loginRouter.post('/iniciarSesion', iniciarSesion);
+export default loginRouter;

@@ -1,10 +1,11 @@
 import express from "express";
 import dotenv from "dotenv";
+import csrf from "csurf";
+import cookieParser from "cookie-parser";
 import db from "./config/db.js"
-import  routerSesion  from "./routes/inicioSesion_routes.js";
 import inicioRouter from "./routes/inicioRouter.js";
-import routerLogin from "./routes/loginRouter.js";
-
+import loginRouter from "./routes/loginRouter.js";
+import routerCarrito from "./routes/carritoRouter.js";
 
 //Creamos nuestra aplicación express (framework de node.js)
 const app = express();
@@ -23,6 +24,14 @@ try {
 //Esto convierte a las solicitudes http en un modo mas complejo para recopilación de formularios (Util para el formulario de inicio de sesión)
 app.use(express.urlencoded({ extended: true }));
 
+//habilitar cookie parser
+app.use(cookieParser());
+
+//CSRF, forma global para la aplicacion
+app.use(csrf({
+    cookie:true
+}));
+
 //Creacion de las vistas al servidor con el uso de Pug
 app.set("view engine", "pug");
 app.set("views", "./views");
@@ -32,9 +41,8 @@ app.use(express.static("public"));
 
 //Enrutamiento (de momento solamente utilizaremos index traduciendo de html a pug)
 app.use("/", inicioRouter);
-app.use("/registro", routerSesion);
-app.use("/login", routerLogin)
-
+app.use("/login", loginRouter);
+app.use("/carrito", routerCarrito);
 
 //Definimos el puerto de escucha de nuestro servidor. 
 const port = process.env.PORT_LISTEN || 3000;

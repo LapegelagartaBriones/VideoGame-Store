@@ -28,6 +28,9 @@ const Usuario = db.define('usuarios',{
         type:DataTypes.BOOLEAN,
         defaultValue:false
     },
+    id_rol:{
+        type:Sequelize.INTEGER
+    },
     token:DataTypes.STRING
 },{
     timestamps:false,
@@ -35,6 +38,13 @@ const Usuario = db.define('usuarios',{
         beforeCreate:async function(usuario){
             const rep= await bcrypt.genSalt(10);
             usuario.password=await bcrypt.hash(usuario.password,rep);
+        }
+    },
+    scopes:{
+        eliminarClave:{
+            attributes:{
+                exclude:['token', 'password', 'confirmado','id_rol']
+            }
         }
     }
 });
