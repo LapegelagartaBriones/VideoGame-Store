@@ -3,5 +3,5 @@ import { registroUser, mostrarRegistro } from "../controllers/inicioSesion/regis
 const routerSesion = express.Router();
 
 routerSesion.get('/', mostrarRegistro);
-routerSesion.post('/',registroUser)
-export default routerSesion
+routerSesion.post('/',registroUser);
+export default routerSesion;

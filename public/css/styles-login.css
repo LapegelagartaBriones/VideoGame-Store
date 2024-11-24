@@ -83,3 +83,10 @@ header{
 .form-list a:hover{
     color: #5ebe73;
 }
+.mensaje-registro{
+    background-color: #5ebe7399;
+    padding: 20px;
+    color: #020019;
+    margin: 20px 0;
+    border-radius: 20px;
+}

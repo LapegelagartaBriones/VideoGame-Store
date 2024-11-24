@@ -22,7 +22,9 @@ head
       form.form-list(action='/registro' method='post')
         h1.titulo-login Registrarse
         if error
-          .mensaje-error #{error}//Mensaje de error
+          .mensaje-error #{error} //Mensaje de error
+        else 
+          .mensaje #{mensaje}
         label(for='username') Nombre de Usuario (crea algo divertido)
         input#username.input(type='text' name='username' placeholder='Ej. Lapegelagarta' required)
         label(for='email') Correo Electr&oacute;nico

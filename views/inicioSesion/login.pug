@@ -21,6 +21,10 @@ head
     .formulario
       form.form-list(method='post')
         h1.titulo-login Iniciar Sesi&oacute;n
+        if error
+          .mensaje-error #{error} //Mensaje de error 
+        else 
+          .mensaje-registro #{mensaje}
         label(for='email') Correo Electr&oacute;nico
         input#email.input(type='email' placeholder='Ej. ejemplo@ejemplo.com')
         label(for='password') Contrase&ntilde;a
