@@ -1,0 +1,41 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='icon' href='/images/logo-JP-icon.png')
+  title Enebo - Registro
+  link(rel='stylesheet' href='/css/styles.css')
+  link(rel='stylesheet' href='/css/styles-login.css')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap' rel='stylesheet')
+.contenido
+  header.header
+    .header__menu
+      .header__principal-logo
+        a(href='/')
+          img.logo-pagina-image(src='/images/logo-pagina.png')
+  .session__container
+    .mensaje-inicio
+      h2.mensaje TU SIGUIENTE AVENTURA COMIENZA AQU&Iacute;. . .
+    .formulario
+      form.form-list(action='/registro' method='post')
+        h1.titulo-login Registrarse
+        if error
+          .mensaje-error #{error}//Mensaje de error
+        label(for='username') Nombre de Usuario (crea algo divertido)
+        input#username.input(type='text' name='username' placeholder='Ej. Lapegelagarta' required)
+        label(for='email') Correo Electr&oacute;nico
+        input#email.input(type='email' name='email' placeholder='Ej. ejemplo@ejemplo.com' required)
+        label(for='password') Contrase&ntilde;a
+        input#password.input(type='password' name='password' placeholder='Crea una contraseña segura' required)
+        label(for='confirm-password') Confirmar contrase&ntilde;a
+        input#confirm-password.input(type='password' name='confirmPassword' placeholder='Ingresa nuevamente tu contraseña aquí' required)
+        .raya__inicio-sesion
+        input.btn_submit(type='submit' value='Registrar')
+        p
+          | Si ya cuentas con una cuenta, inicia sesi&oacute;n 
+          a(href='/login') aqu&iacute;
+          | .
+  footer.footer
+    .footer__container

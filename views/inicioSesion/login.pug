@@ -1,0 +1,35 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Enebo - Iniciar Sesi&oacute;n
+  link(rel='icon' href='/images/logo-JP-icon.png')
+  link(rel='stylesheet' href='/css/styles.css')
+  link(rel='stylesheet' href='/css/styles-login.css')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap' rel='stylesheet')
+.contenido
+  header.header
+    .header__menu.container
+      .header__principal-logo
+        a(href='index.html')
+          img.logo-pagina-image(src='/images/logo-pagina.png')
+  .session__container
+    .mensaje-inicio
+      h2.mensaje TU SIGUIENTE AVENTURA COMIENZA AQU&Iacute;. . .
+    .formulario
+      form.form-list(method='post')
+        h1.titulo-login Iniciar Sesi&oacute;n
+        label(for='email') Correo Electr&oacute;nico
+        input#email.input(type='email' placeholder='Ej. ejemplo@ejemplo.com')
+        label(for='password') Contrase&ntilde;a
+        input#password.input(type='password' placeholder='Tu contraseña aquí')
+        .raya__inicio-sesion
+        input.btn_submit(type='submit' value='Ingresar')
+        p
+          | Si a&uacute;n no tienes cuenta registrate 
+          a(href='registro.html') aqu&iacute;
+          | .
+  footer.footer
+    .footer__container

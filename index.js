@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
-import db from "./database/db.js";
-import { render } from "pug";
-
+import db from "./config/db.js"
+import  routerSesion  from "./routes/inicioSesion_routes.js";
+import inicioRouter from "./routes/inicioRouter.js";
 
 
 //Creamos nuestra aplicación express (framework de node.js)
@@ -30,9 +30,8 @@ app.set("views", "./views");
 app.use(express.static("public"));
 
 //Enrutamiento (de momento solamente utilizaremos index traduciendo de html a pug)
-app.use("/", (req, res)=>{
-    res.render("index");
-});
+app.use("/", inicioRouter);
+app.use("/registro", routerSesion);
 
 
 //Definimos el puerto de escucha de nuestro servidor. 
