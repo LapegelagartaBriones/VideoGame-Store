@@ -6,10 +6,19 @@ import db from "./config/db.js"
 import inicioRouter from "./routes/inicioRouter.js";
 import loginRouter from "./routes/loginRouter.js";
 import routerCarrito from "./routes/carritoRouter.js";
+import session from "express-session";
 
 //Creamos nuestra aplicación express (framework de node.js)
 const app = express();
-
+app.use(session({
+    secret:'gatoNegro',
+    resave:false,
+    saveUninitialized:true,
+    cookie:{
+        maxAge:3600000,
+        secure:false
+    }
+}));
 dotenv.config({path: '.env'});
 
 //Verificacamos nuestra conexión con la base de datos

@@ -14,16 +14,15 @@ head
     .header__menu.container
       .header__principal-logo
         a(href='/')
-          img.logo-pagina-image(src='img/images_pagina/logo-pagina.png')
+          img.logo-pagina-image(src='http://localhost:3000/img/images_pagina/logo-pagina.png')
   .session__container
     .mensaje-inicio
       h2.mensaje TU SIGUIENTE AVENTURA COMIENZA AQU&Iacute;. . .
     .formulario
       form.form-list(action='/login/iniciarSesion' method='post')
         h1.titulo-login Iniciar Sesi&oacute;n
-        if error
-          .mensaje-error #{error} //Mensaje de error 
-        else 
+        if error || mensaje 
+          .mensaje-error #{error}
           .mensaje-registro #{mensaje}
         input(type="hidden", name="_csrf", value=csrf)
         label(for='email') Correo Electr&oacute;nico

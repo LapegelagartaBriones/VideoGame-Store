@@ -19,9 +19,14 @@ head
           img.carrito-image(src='img/images_pagina/logo-carrito-1.png')
           span.numero-items
       .header__session
-        a.header__session-link(href='/login/iniciarSesion' target='_blank') Iniciar Sesi&oacute;n
-        p |
-        a.header__session-link(href='/login' target='_blank') Registrarse
+        if user 
+          a.header__session-link(href='#') #{user.name}
+          p |
+          a.header__session-link(href='/login/cerrarSesion') Cerrar Sesi&oacute;n
+        else 
+          a.header__session-link(href='/login/iniciarSesion' target='_blank') Iniciar Sesi&oacute;n
+          p |
+          a.header__session-link(href='/login' target='_blank') Registrarse
     .tabla-anuncios
       img(src='img/images_pagina/anuncio.jpg')
   main.main

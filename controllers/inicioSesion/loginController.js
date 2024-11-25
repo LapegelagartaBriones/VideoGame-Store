@@ -136,21 +136,39 @@ const iniciarSesion = async (req, res)=>{
     }
     
 
-    const JWTGenera = (usuario) => {
-        return jwt.sign({ id:usuario.token }, process.env.SC_JWT, { expiresIn: '1h' });
+   // const JWTGenera = (usuario) => {
+     //   return jwt.sign({ id:usuario.token }, process.env.SC_JWT, { expiresIn: '1h' });
+    //}
+    //SESSION
+    req.session.user={
+        id: usuario.id_usuario,
+        name: usuario.username,
+        email: usuario.email
     }
-
     console.log("Se ha iniciado sesion correctamente");
+    res.redirect("/");
     //Crear jsonwebtoken
-    const token=JWTGenera(usuario);
-    console.log("usuario: ",usuario);
-    console.log("token: ",token);
-    return res.cookie('_token',token,{
-        httpOnly:true
-    }).redirect('/');
+//    const token=JWTGenera(usuario);
+//    console.log("usuario: ",usuario);
+    //console.log("token: ",token);
+    //return res.cookie('_token',token,{
+       // httpOnly:true
+    //}).redirect('/');
     
+};
+
+const cerrarSesion = (req, res)=>{
+    req.session.destroy(err =>{
+        if (err) {
+            console.error(err);
+            return res.render("inicioSesion/login",{
+                error: 'Error al cerrar sesión'
+            })
+        }
+        res.redirect('/');
+    })
 }
 
 
 
-export {registroUser, mostrarRegistro, mostrarLogin, confirmarInscripcion, iniciarSesion};
+export {registroUser, mostrarRegistro, mostrarLogin, confirmarInscripcion, iniciarSesion, cerrarSesion};
