@@ -18,12 +18,32 @@ const correoRegistro = async(info)=>{
     from:'juchbriones@gmail.com',
     to:correo,
     subject:'Confirma tu registro',
-    html:`
-      <p>Nos alegra mucho que te hayas registrado ${nombre}, para terminar por favor comprueba la cuenta</p>
-      <p>Confirma en el siguiente enlace:
-        <a href="${process.env.URL_BACKEND}:${process.env.PORT_BACKEND??3000}/login/confirmarInscripcion/${token}">Confirmar</a>
-        </p>
-        <p>Si no solicitaste el registro, por favor ignora el mensaje</p>
+    html:`   
+      <html lang="es">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Enebo - confiramcion</title>
+          <link rel="icon" href="http://localhost:3000/img/images_pagina/logo-JP-icon.png">
+          <link rel="stylesheet" href="/css/styles.css">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+      </head>
+      <body>
+          <header class="header" id="header">
+              <div class="header__menu-container">
+                  <div class="header__principal-logo">
+                      <a href="/"><img class="logo-pagina-image" src="http://localhost:3000/img/images_pagina/logo-pagina.png"></a>
+                  </div>
+              </div>
+          </header>
+          <h1>¡Hola, ${nombre}!</h1>
+          <p>Gracias por registrarte. Todo el equipo de Enebo esta muy emocionado de tenerte a bordo, con los mejores precios y ofertas.</p>
+          <p>Haz clic en el siguiente enlace para confirmar tu dirección de correo:</p>
+          <a href="http://localhost:3000/login/confirmarInscripcion/${token}">Confirmar correo</a>
+      </body>
+      </html>
     `
   });
 };

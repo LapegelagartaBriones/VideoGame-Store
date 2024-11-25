@@ -1,4 +1,26 @@
-<h1>¡Hola, ${username}!</h1>
-<p>Gracias por registrarte. Todo el equipo de Enebo esta muy emocionado de tenerte a bordo, con los mejores precios y ofertas.</p>
-<p>Haz clic en el siguiente enlace para confirmar tu dirección de correo:</p>
-<a href="http://localhost:3000/confirmar/${username}" target="_blank">Confirmar correo</a>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enebo - confiramcion</title>
+    <link rel="icon" href="http://localhost:3000/img/images_pagina/logo-JP-icon.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header" id="header">
+        <div class="header__menu-container">
+            <div class="header__principal-logo">
+                <a href="/"><img class="logo-pagina-image" src="http://localhost:3000/img/images_pagina/logo-pagina.png"></a>
+            </div>
+        </div>
+    </header>
+    <h1>¡Hola, ${username}!</h1>
+    <p>Gracias por registrarte. Todo el equipo de Enebo esta muy emocionado de tenerte a bordo, con los mejores precios y ofertas.</p>
+    <p>Haz clic en el siguiente enlace para confirmar tu dirección de correo:</p>
+    <a href="http://localhost:3000/confirmar/${username}">Confirmar correo</a>
+</body>
+</html>
