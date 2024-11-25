@@ -1,8 +1,7 @@
 import Usuario from "../../models/Usuarios.js";
 import idGenerated from "../../helpers/token.js";
-import JWTGenera from "../../helpers/token.js"
 import { correoRegistro } from "../../helpers/correos.js";
-
+import jwt from 'jsonwebtoken';
 
 const mostrarRegistro = (req, res)=>{
     res.render("inicioSesion/registro",{
@@ -135,11 +134,17 @@ const iniciarSesion = async (req, res)=>{
             errores:[{msg:'Credenciales no válidas'}]
         })
     }
+    
+
+    const JWTGenera = (usuario) => {
+        return jwt.sign({ id:usuario.token }, process.env.SC_JWT, { expiresIn: '1h' });
+    }
+
     console.log("Se ha iniciado sesion correctamente");
     //Crear jsonwebtoken
     const token=JWTGenera(usuario);
-    console.log(usuario);
-    console.log(token);
+    console.log("usuario: ",usuario);
+    console.log("token: ",token);
     return res.cookie('_token',token,{
         httpOnly:true
     }).redirect('/');
