@@ -1,0 +1,47 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Enebo - CarritoConfig
+  link(rel='icon' href='http://localhost:3000/img/images_pagina/logo-JP-icon.png')
+  link(rel='stylesheet' href='/css/styles-carritoConfig.css')
+  link(rel='stylesheet' href='/css/styles.css')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap' rel='stylesheet')
+.content
+  header#header.header
+    .header__menu-container
+      .header__principal-logo
+        a(href='index.html')
+          img.logo-pagina-image(src='http://localhost:3000/img/images_pagina/logo-pagina.png')
+    .header__session
+    
+      a.header__session-link #{user.name}
+      p |
+      a.header__session-link(href='/login/cerrarSesion') Cerrar Sesi&oacute;n
+  main.main
+    .titulo-configCarritos
+      h2 Configuraci&oacute;n de Carritos
+    .content-main
+      form(action='/carrito/carritoConfig' method='post')
+        .configuraciones
+          .configuraciones-carrito
+            h3 Selecciona el carrito que quieres usuar #{user.name}
+            p &iexcl;IMPORTANTE! - Asegurate de s&oacute;lo seleccionar uno.
+            .raya-carrito.Config
+            .opcion
+              input(type="hidden", name="_csrf", value=csrf)
+              input(type="hidden", name="defaultCarrito" value="alpha")
+              label(for='carrito-alpha') Carrito Principal
+              input#carrito-alpha(type='checkbox' name='carrito' value='ALPHA')
+            .opcion
+              label(for='carrito-betha') Carrito Secundario
+              input#carrito-betha(type='checkbox' name='carrito' value='BETHA')
+            .opcion
+              label(for='carrito-deseos') Lista de deseos
+              input#carrito-deseos(type='checkbox' name='carrito' value='DESEOS')
+            .raya-carrito.Config
+            input.buttoncarrtiConfig(type='submit' value='Listo para continuar')
+            button.buttoncarrtiConfig(onclick=`window.location='/'`) Cancelar
+script(src='/js/script_carritoConfig.js')

@@ -9,7 +9,7 @@ const inicio = async (req, res)=>{
                 attributes:['nombre']
             }],
         });
-        console.log(JSON.stringify(juegos, null, 2));
+        //console.log(JSON.stringify(juegos, null, 2));
         res.render("index",{
             juegos,
             user: req.session.user
@@ -36,5 +36,25 @@ const juegoSeleccionado = async (req, res)=>{
         user: req.session.user
     });
 };
+const juegoSeleccionadoPlataforma = async (req, res)=>{
+    const {id_plataforma} = req.params;
+    try {
+        const juegos = await Juegos.findAll({
+            where:{ id_plataforma },
+            include:[{
+                model:Plataformas,
+                attributes:['nombre']
+            }]
+        });
+        //console.log(JSON.stringify(juegos,null,2));
+        res.render("index",{
+            juegos,
+            user: req.session.user
+        });
+    } catch (error) {
+        console.error("Error al obtener los juegos: ", error);
+    }
+};
 
-export {inicio, juegoSeleccionado};
+
+export {inicio, juegoSeleccionado, juegoSeleccionadoPlataforma};
