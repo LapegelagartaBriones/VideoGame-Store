@@ -1,7 +1,7 @@
 import Usuario from "../../models/Usuarios.js";
 import idGenerated from "../../helpers/token.js";
 import { correoRegistro } from "../../helpers/correos.js";
-import jwt from 'jsonwebtoken';
+
 
 const mostrarRegistro = (req, res)=>{
     res.render("inicioSesion/registro",{

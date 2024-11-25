@@ -8,6 +8,10 @@ const Carrito = db.define('carrito',{
         allowNull:false,
         autoIncrement:true,
         primaryKey:true
+    },
+    nombre:{
+        type:DataTypes.STRING,
+        allowNull: false
     }
 },{
     timestamps:false

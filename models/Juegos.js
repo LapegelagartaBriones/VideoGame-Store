@@ -29,6 +29,10 @@ const Juegos = db.define('juegos',{
     descripcion:{
         type:DataTypes.STRING,
         allowNull:false
+    },
+    precio:{
+        type:DataTypes.STRING,
+        allowNull:false
     }
 },
 {
