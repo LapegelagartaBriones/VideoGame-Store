@@ -19,40 +19,43 @@ head
       .main__product
         h1.titulo-carrito
           | Mi Carrito 
-          p.id-carrito=carrito
+          p.id-carrito Alpha
         .otra-raya
-        if juegos.length 
+        if juegos
           each juego in juegos
             .producto-carrito
               img.imagen__producto-carr(src=juego.portada)
               .producto-container
                 .borrar
-                  svg(xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='30' height='30' viewbox='0,0,256,256')
-                    g(fill='#d9053f' fill-rule='nonzero' stroke='none' stroke-width='1' stroke-linecap='butt' stroke-linejoin='miter' stroke-miterlimit='10' stroke-dasharray='' stroke-dashoffset='0' font-family='none' font-weight='none' font-size='none' text-anchor='none' style='mix-blend-mode: normal')
-                      g(transform='scale(8.53333,8.53333)')
-                        path(d='M13,3c-0.26757,-0.00363 -0.52543,0.10012 -0.71593,0.28805c-0.1905,0.18793 -0.29774,0.44436 -0.29774,0.71195h-5.98633c-0.36064,-0.0051 -0.69608,0.18438 -0.87789,0.49587c-0.18181,0.3115 -0.18181,0.69676 0,1.00825c0.18181,0.3115 0.51725,0.50097 0.87789,0.49587h18c0.36064,0.0051 0.69608,-0.18438 0.87789,-0.49587c0.18181,-0.3115 0.18181,-0.69676 0,-1.00825c-0.18181,-0.3115 -0.51725,-0.50097 -0.87789,-0.49587h-5.98633c0,-0.26759 -0.10724,-0.52403 -0.29774,-0.71195c-0.1905,-0.18793 -0.44836,-0.29168 -0.71593,-0.28805zM6,8v16c0,1.105 0.895,2 2,2h14c1.105,0 2,-0.895 2,-2v-16z')
-              .titulo__producto-carrito-container
-                h2.titulo__producto-carrito= juego.nombre
-              p.text-plataforma=juego.plataforma.nombre
-              .precio-container
-                p Precio:
-                p.precio
-                  | $
-                  strong.numero-precio=juego.precio 
+                  form(action=`/carrito/eliminar/${juego.id_juego}` method='post') 
+                    input(type="hidden", name="_csrf", value=csrf)
+                    button.borrar-btn(type='submit')
+                      svg(xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='30' height='30' viewbox='0,0,256,256')
+                        g(fill='#d9053f' fill-rule='nonzero' stroke='none' stroke-width='1' stroke-linecap='butt' stroke-linejoin='miter' stroke-miterlimit='10' stroke-dasharray='' stroke-dashoffset='0' font-family='none' font-weight='none' font-size='none' text-anchor='none' style='mix-blend-mode: normal')
+                          g(transform='scale(8.53333,8.53333)')
+                            path(d='M13,3c-0.26757,-0.00363 -0.52543,0.10012 -0.71593,0.28805c-0.1905,0.18793 -0.29774,0.44436 -0.29774,0.71195h-5.98633c-0.36064,-0.0051 -0.69608,0.18438 -0.87789,0.49587c-0.18181,0.3115 -0.18181,0.69676 0,1.00825c0.18181,0.3115 0.51725,0.50097 0.87789,0.49587h18c0.36064,0.0051 0.69608,-0.18438 0.87789,-0.49587c0.18181,-0.3115 0.18181,-0.69676 0,-1.00825c-0.18181,-0.3115 -0.51725,-0.50097 -0.87789,-0.49587h-5.98633c0,-0.26759 -0.10724,-0.52403 -0.29774,-0.71195c-0.1905,-0.18793 -0.44836,-0.29168 -0.71593,-0.28805zM6,8v16c0,1.105 0.895,2 2,2h14c1.105,0 2,-0.895 2,-2v-16z')
+                .titulo__producto-carrito-container
+                  h2.titulo__producto-carrito= juego.nombre
+                  p.text-plataforma=juego.plataforma.nombre
+                .precio-container
+                  p Precio:
+                  p.precio
+                    | $
+                    strong.numero-precio=juego.precio 
         else 
-        h3 No hay juegos en carrito
+          h3 No hay juegos en carrito
       .pago__container
         .resumen
           h2 Resumen
           .raya-resumen
-          a.enlace-compra(href='pago.html') Continuar con la compra
+          a.enlace-compra(href='/pago/mostrarPago') Continuar con la compra
           a.enlace-compra(href='/') Regresar
         .raya-division
         .total
           .total-text
             h2 Total:
           .num-total
-            strong.num__total-cambio 641.16
+            strong.num__total-cambio= total
             |  MXN
         .raya-division
         .forma-pago

@@ -3,7 +3,7 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Enebo - Inicio
-  link(rel='icon' href='img/images_pagina/logo-JP-icon.png')
+  link(rel='icon' href='http://localhost:3000/img/images_pagina/logo-JP-icon.png')
   link(rel='stylesheet' href='/css/styles.css')
   link(rel='preconnect' href='https://fonts.googleapis.com')
   link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
@@ -15,11 +15,10 @@ head
         a(href='/')
           img.logo-pagina-image(src='http://localhost:3000/img/images_pagina/logo-pagina.png')
       .header__carrito
-        a(href='/carrito/mostrarCarrito' target='_blank')
-          img.carrito-image(src='img/images_pagina/logo-carrito-1.png')
+        a(href='/carrito/mostrar' target='_blank')
+          img.carrito-image(src='http://localhost:3000/img/images_pagina/logo-carrito-1.png')
           span.numero-items
       .header__session
-        a.header__session-link(href='/carrito/carritoConfig') Configurar Carrito
         if user 
           a.header__session-link #{user.name}
           p |
@@ -29,7 +28,7 @@ head
           p |
           a.header__session-link(href='/login/registro' target='_blank') Registrarse
     .tabla-anuncios
-      img(src='img/images_pagina/anuncio.jpg')
+      img(src='http://localhost:3000/img/images_pagina/anuncio.jpg')
   main.main
     .main__container
       .header__menu-categori-container
@@ -80,7 +79,7 @@ head
                   | $ 
                   strong= juego.precio
                 .raya
-                button#modal-open.button__modal-open.button__add-carrito(onclick=`window.location='/${juego.id_juego}'`) A&ntilde;adir al Carrito
+                button#modal-open.button__modal-open.button__add-carrito(onclick=`window.location='/carrito/juego/${juego.id_juego}'`) A&ntilde;adir al Carrito
                 button.button__modal-open__add-carrito(onclick=`window.location='verMas/${juego.id_juego}'`) ver m&aacute;s
           else 
             p.no-juegos No hay juegos disponibles  

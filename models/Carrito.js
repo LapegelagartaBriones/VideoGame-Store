@@ -2,6 +2,8 @@ import  Sequelize  from "sequelize";
 import { DataTypes } from "sequelize";
 import db from "../config/db.js";
 
+
+
 const Carrito = db.define('carrito',{
     id_carrito:{
         type:Sequelize.INTEGER,
@@ -14,7 +16,8 @@ const Carrito = db.define('carrito',{
         allowNull: false
     }
 },{
-    timestamps:false
+    timestamps:false,
+    tableName: 'carrito'
 });
 
 export default Carrito;

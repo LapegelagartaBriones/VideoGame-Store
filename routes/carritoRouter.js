@@ -1,10 +1,10 @@
 import express from "express";
-import { CarritoConfig, mostrarCarrito, seleccionarCarrito } from "../controllers/carrito/carritoController.js";
+import  { eliminarDelCarrito, juegoCarrito, mostrarCarrito } from "../controllers/carrito/carritoController.js";
 import rutaProteger from "../middleware/rutasProteger.js"
 const routerCarrito = express.Router();
 
-routerCarrito.get("/mostrarCarrito",rutaProteger,mostrarCarrito);
-routerCarrito.get("/carritoConfig", rutaProteger, CarritoConfig);
-routerCarrito.post("/carritoConfig",seleccionarCarrito );
+routerCarrito.get("/mostrar",rutaProteger,mostrarCarrito);
+routerCarrito.get("/juego/:id",juegoCarrito)
+routerCarrito.post("/eliminar/:id", eliminarDelCarrito );
 
 export default routerCarrito;

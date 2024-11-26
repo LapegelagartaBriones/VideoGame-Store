@@ -1,0 +1,66 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='icon' href='http://localhost:3000/img/images_pagina/logo-JP-icon.png')
+  title Enebo - Pago
+  link(rel='stylesheet' href='/css/styles.css')
+  link(rel='stylesheet' href='/css/styles-pago.css')
+  link(rel='preconnect' href='https://fonts.googleapis.com')
+  link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+  link(href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap' rel='stylesheet')
+.contenido
+  header.header
+    .header__menu.container
+      .header__principal-logo
+        a(href='/')
+          img.logo-pagina-image(src='http://localhost:3000/img/images_pagina/logo-pagina.png')
+      .cancelar
+        a(href='/') Cancelar
+  main.main
+    .main__container
+      .titulo-main
+        h1 PANTALLA DE COMPRA
+        h3.username=user.name
+      .lo-demas
+        .anuncio-pago
+          if mensaje
+            p=mensaje
+          else
+            | Verifica tu informaci&oacute;n y haz clic en Realizar compra.
+        
+        .resumen-pago
+          .titulo-resumen-compra
+            h2 Resumen de compra
+          .raya-resumen-compra
+          .productos-titulo
+            h2 Productos :
+          if  juegos
+            each juego in juegos
+              .titulo-resumen-pago
+                img.imagen__producto-carr(src=juego.portada)
+                .producto-container
+                  .titulo__producto-carrito-container
+                    h2.titulo__producto-carrito Horizon Forbidden West
+                    p.text-plataforma=juego.plataforma.nombre 
+                  .precio-container
+                    p Precio:
+                    p.precio
+                      | $
+                      strong.numero-precio=total 
+          .raya-resumen-compra
+          .pagos-resumen
+            .tipo-pago
+              h2 Tipo de pago:
+              h3 OXXO
+            .total
+              h3.texto-total Total
+              h3.dinero $#{total}
+          .raya-resumen-compra
+          .button-pago
+            button#btn-pago-realizado.btn-realizar-compra(onclick=`window.location='/pago/compraRealizada'`) Realizar Compra
+          if mensaje 
+            a.btn-realizar-compra(href="/") continuar
+footer.footer
+  .footer__container
+script(src='/js/pagoScript.js')

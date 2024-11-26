@@ -1,6 +1,7 @@
 import Juegos from "../models/Juegos.js";
 import Plataformas from "../models/Plataformas.js";
-
+import JuegosCarrito from "../models/JuegosCarrito.js"
+import Carrito from "../models/Carrito.js";
 const inicio = async (req, res)=>{
     try {
         const juegos = await Juegos.findAll({
@@ -55,6 +56,10 @@ const juegoSeleccionadoPlataforma = async (req, res)=>{
         console.error("Error al obtener los juegos: ", error);
     }
 };
+
+// Controlador para manejar el carrito de un juego
+
+
 
 
 export {inicio, juegoSeleccionado, juegoSeleccionadoPlataforma};

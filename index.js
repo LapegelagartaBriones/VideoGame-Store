@@ -7,6 +7,8 @@ import inicioRouter from "./routes/inicioRouter.js";
 import loginRouter from "./routes/loginRouter.js";
 import routerCarrito from "./routes/carritoRouter.js";
 import session from "express-session";
+import pagoRouter from "./routes/pagoRouter.js";
+import superRouter from "./routes/superRouter.js";
 
 //Creamos nuestra aplicación express (framework de node.js)
 const app = express();
@@ -52,6 +54,8 @@ app.use(express.static("public"));
 app.use("/", inicioRouter);
 app.use("/login", loginRouter);
 app.use("/carrito", routerCarrito);
+app.use("/pago", pagoRouter);
+app.use("/superUsuario",superRouter);
 
 //Definimos el puerto de escucha de nuestro servidor. 
 const port = process.env.PORT_LISTEN || 3000;

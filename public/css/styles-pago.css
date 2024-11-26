@@ -152,6 +152,10 @@ body{
 .btn-realizar-compra:hover{
     background-color: #fa0f9b;
 }
+.btn-realizar-compra a{
+    margin: 20px 0;
+    border-radius: 10px;
+}
 .modal-pago-realizado{
     display: none;
     position: fixed;

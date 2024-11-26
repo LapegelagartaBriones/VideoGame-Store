@@ -1,7 +1,6 @@
 import  Sequelize  from "sequelize";
 import db from "../config/db.js";
 import Carrito from "./Carrito.js";
-import Usuario from "./Usuarios.js";
 import Juegos from "./Juegos.js";
 
 const JuegosCarrito = db.define('juegosCarrito',{
@@ -13,11 +12,19 @@ const JuegosCarrito = db.define('juegosCarrito',{
     },
     id_juego:{
         type:Sequelize.INTEGER,
-        allowNull:false
+        allowNull:false,
+        references:{
+            model:Juegos,
+            key:'id_juego'
+        }
     },
     id_carrito:{
         type:Sequelize.INTEGER,
-        allowNull:false
+        allowNull:false,
+        references:{
+            model:Carrito,
+            key:'id_carrito'
+        }
     }
 },{
     timestamps:false
