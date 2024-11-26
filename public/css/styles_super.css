@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #00213e;
+    color: white;
+    padding: 10px 20px;
+  }
+  header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  header .cart {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #d52e62;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  header .cart span {
+    font-size: 1em;
+  }
+  header .logout {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .banner {
+    text-align: center;
+    padding: 20px;
+    background-color: #e0f7f9;
+    position: relative;
+  }
+  .banner h1 {
+    margin: 0;
+    color: #00213e;
+}

@@ -3,7 +3,7 @@ head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   title Enebo - Iniciar Sesi&oacute;n
-  link(rel='icon' href='img/images_pagina/logo-JP-icon.png')
+  link(rel='icon' href='http://localhost:3000/img/images_pagina/logo-JP-icon.png')
   link(rel='stylesheet' href='/css/styles.css')
   link(rel='stylesheet' href='/css/styles-login.css')
   link(rel='preconnect' href='https://fonts.googleapis.com')
@@ -14,16 +14,15 @@ head
     .header__menu.container
       .header__principal-logo
         a(href='/')
-          img.logo-pagina-image(src='img/images_pagina/logo-pagina.png')
+          img.logo-pagina-image(src='http://localhost:3000/img/images_pagina/logo-pagina.png')
   .session__container
     .mensaje-inicio
       h2.mensaje TU SIGUIENTE AVENTURA COMIENZA AQU&Iacute;. . .
     .formulario
       form.form-list(action='/login/iniciarSesion' method='post')
         h1.titulo-login Iniciar Sesi&oacute;n
-        if error
-          .mensaje-error #{error} //Mensaje de error 
-        else 
+        if error || mensaje 
+          .mensaje-error #{error}
           .mensaje-registro #{mensaje}
         input(type="hidden", name="_csrf", value=csrf)
         label(for='email') Correo Electr&oacute;nico
@@ -34,7 +33,7 @@ head
         input.btn_submit(type='submit' value='Ingresar')
         p
           | Si a&uacute;n no tienes cuenta registrate 
-          a(href='/login') aqu&iacute;
+          a(href='/login/registro') aqu&iacute;
           | .
   footer.footer
     .footer__container
